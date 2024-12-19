@@ -4,7 +4,7 @@ import com.example.chatappktor.domain.model.Message
 import com.example.chatappktor.utils.Resource
 import kotlinx.coroutines.flow.Flow
 
-interface ChatSockets {
+interface ChatSocketService {
 
     suspend fun initSession(
         username: String
