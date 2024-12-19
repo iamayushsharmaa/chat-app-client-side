@@ -15,7 +15,6 @@ class UsernameViewModel @Inject constructor(
 
 ) : ViewModel() {
 
-
     private val _usernameText = mutableStateOf("")
     val usernameText : State<String> = _usernameText
 
@@ -30,7 +29,6 @@ class UsernameViewModel @Inject constructor(
         viewModelScope.launch {
             if (usernameText.value.isNotBlank()){
                 _onJoin.emit(usernameText.value)
-
             }
         }
 
