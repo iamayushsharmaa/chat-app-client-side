@@ -5,6 +5,7 @@ import com.example.chatappktor.utils.Resource
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.websocket.webSocketSession
 import io.ktor.client.request.url
+import io.ktor.websocket.Frame
 import io.ktor.websocket.WebSocketSession
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.isActive
@@ -34,7 +35,11 @@ class ChatSocketsImpl(
     }
 
     override suspend fun sendMessage(message: String) {
-        TODO("Not yet implemented")
+        try {
+            socket?.send(Frame.Text(message))
+        }catch (e:Exception){
+            e.printStackTrace()
+        }
     }
 
     override fun observeMessages(): Flow<Message> {
